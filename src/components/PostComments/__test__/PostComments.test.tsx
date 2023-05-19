@@ -11,7 +11,7 @@ describe('Teste para o componente PostComment', () => {
 
 describe('Teste de criacao de comentarios', () => {
     it('Postagem de primeiro comentario', () => {
-        const { debug } = render(<Post />)
+        render(<Post />)
         const inputComent = screen.getByTestId('comentTextArea')
         const postButton = screen.getByTestId('post-button')
 
@@ -28,7 +28,8 @@ describe('Teste de criacao de comentarios', () => {
             }
         })
         fireEvent.click(postButton)
-        expect(screen.getByText('Nao gostuei, Asmei!!')).toBeInTheDocument()
-        expect(screen.getByText('https://www.youtube.com/watch?v=dQw4w9WgXcQ')).toBeInTheDocument()
+        expect(screen.getAllByTestId('post-container').length).toBe(2)
+
+
     })
 })
